@@ -3,10 +3,10 @@
 	<title>Todo List Made by Davidwang</title>
 </head>
 <body>
-	<form id="form" name="inputform">
+	<form id="form" name="inputform" action="javascript:submit();">
 		<label for="title">ToDo List</label>
-		<input type="text" name="todoText" value="type your todoList here!" onblur="onBlur();" onfocus="onFocus();" onkeypress="keyPress();">
-		<input type="button" onclick="submit();" value="add">
+		<input type="text" name="todoText" value="type your todoList here!" onblur="onBlur();" onfocus="onFocus();">
+		<input type="BUTTON" onclick="submit();" value="add">
 	</form>
 	<form>
 		<h2 id="tcount"> todo (0) </h2>
@@ -18,6 +18,10 @@
 		<h2 id="fcount"> finished (0)</h2>
 		<ul id="Finish">
 		</ul>
+	</form>
+	<form name="debug">
+		<textarea name="DDbug" cols="100" rows="100" id="debug">
+		</textarea>
 	</form>
 	<script type="text/javascript" src="main.js"></script>
 </body>

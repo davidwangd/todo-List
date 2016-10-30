@@ -1,12 +1,16 @@
+
+var bug = document.getElementById("debug");
 function onFocus(){
 	var obj = document.inputform.todoText;
 	if (obj.value == "type your todoList here!") obj.value = "";
+	bug.value += "you are now on the focus" + "\n";
 }
 function onBlur(){
 	var obj = document.inputform.todoText;
 	if (obj.value == "") obj.value = "type your todoList here!";
+	bug.value += "you leave the text field" + "\n";
 }
-var todoCount,finishCount,count;
+var todoCount = 0,finishCount = 0,count = 0;
 var todo = new Array(200);
 var finish = new Array(200);
 var list = new Array(400);
@@ -22,19 +26,19 @@ function reload(){
 	var todoHead = document.getElementById("tcount");
 	var finishHead = document.getElementById("fcount");
 	var Todo = document.getElementById("Todo");
-	var Finish = document.getElementById("Finsih");
-	var t,f;
+	var Finish = document.getElementById("Finish");
+	var t = "",f="";
 	todoCount = 0;
 	finishCount = 0;
 	for (i = 1;i <= count;i++){
 		if (list[i].exist == false) continue;
 		if (list[i].done == false){
-			t = t + "<li> <input type=\"button\" onclick=\"update(" + i + ",true,true);\" value=\"finish\"><p>" + list[i].text + 
-				"<\\p><input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\"><\\li>";   
+			t = t + "<li><input type=\"button\" onclick=\"update(" + i + ",true,true);\" value=\"finish\">" + list[i].text + 
+				"<input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\">";   
 			todoCount++;
 		}else{
-			f = f + "<li> <input type=\"button\" onclick=\"update(" + i + ",false,true);\" value=\"unfinish\"><p>" + list[i].text + 
-				"<\\p><input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\"><\\li>";
+			f = f + "<li> <input type=\"button\" onclick=\"update(" + i + ",false,true);\" value=\"unfinish\">" + list[i].text + 
+				"<input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\">";
 			finishCount++;
 		}
 	}
@@ -57,10 +61,13 @@ function submit(){
 		window.alert("please input the exactly things todo!!");
 		return false;
 	}
-
+	bug.value += "you've sumbit one todo event";
 	count++;
-	todoCount++;
-	list[count] = feature(document.inputform.todoText.value,false,null,count);
+	window.alert(count);
+	list[count] = new feature(document.inputform.todoText.value,false,null,count);
+	for (i = 1;i <= count;i++){
+		window.alert(list[i]);
+	}
 	reload();
 }
 /*
