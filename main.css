@@ -4,4 +4,30 @@ body{
 	font-size:16px;
 	background-color:#756594;
 }
-label{float:left;width:100px;line-height:50px;color:#DDD;font-size:24px;cursor:pointer;font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}
+header {
+	height:50px;
+	background:#333;
+	background:rgba(93,20,92,0.66);
+}
+section{
+	margin:0 
+	auto;
+}
+label{
+	margin:10%;
+	float:left;
+	width:200px;
+	line-height:50px;
+	font-size:40px;
+	size:100px;
+	color:#DDD;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+ul li{
+	size: 400px;
+	font-size:20px;	
+}
+.del{
+	float:right;
+	background-color: red;
+}

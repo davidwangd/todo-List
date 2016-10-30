@@ -29,12 +29,12 @@ function reload(){
 	for (i = 1;i <= count;i++){
 		if (list[i].exist == false) continue;
 		if (list[i].done == false){
-			t = t + "<li><input type=\"button\" onclick=\"update(" + i + ",true,true);\" value=\"finish\">" + list[i].text + 
-				"<input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\">";   
+			t = t + "<li draggable='true'><input type=\"checkbox\" onchange=\"update(" + i + ",true,true);\">" + list[i].text + 
+				"<input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\" class='del'></li>";   
 			todoCount++;
 		}else{
-			f = f + "<li> <input type=\"button\" onclick=\"update(" + i + ",false,true);\" value=\"unfinish\">" + list[i].text + 
-				"<input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\">";
+			f = f + "<li draggable='true'> <input type=\"checkbox\" onclick=\"update(" + i + ",false,true);\" checked='checked'>" + list[i].text + 
+				"<input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\" class='del'>";
 			finishCount++;
 		}
 	}
@@ -54,11 +54,12 @@ function update(id,done,exist){
 function submit(){
 	if (document.inputform.todoText.value == "type your todoList here!"
 	 || document.inputform.todoText.value == ""){
+	 	window.alert("please enter exact what todo!");
 		return false;
 	}
-	bug.value += "you've sumbit one todo event";
 	count++;
 	list[count] = new feature(document.inputform.todoText.value,false,null,count);
+	document.inputform.todoText.value = "";
 	reload();
 }
 /*
