@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Todo List Made by Davidwang</title>
+</head>
+<body>
+	<form id="form" name="inputform">
+		<label for="title">ToDo List</label>
+		<input type="text" name="todoText" value="type your todoList here!" onblur="onBlur();" onfocus="onFocus();" onkeypress="keyPress(window.event);">
+		<input type="button" onclick="submit();" value="add">
+	</form>
+	<form id="todoform" name="todoform">
+		<h2 id="tcount"> todo (0) </h2>
+	</form>
+	<form id="finish" name="finish">
+		<h2 id="fcount"> finished (0)</h2>
+	</form>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
