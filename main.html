@@ -5,14 +5,18 @@
 <body>
 	<form id="form" name="inputform">
 		<label for="title">ToDo List</label>
-		<input type="text" name="todoText" value="type your todoList here!" onblur="onBlur();" onfocus="onFocus();" onkeypress="keyPress(window.event);">
+		<input type="text" name="todoText" value="type your todoList here!" onblur="onBlur();" onfocus="onFocus();" onkeypress="keyPress();">
 		<input type="button" onclick="submit();" value="add">
 	</form>
-	<form id="todoform" name="todoform">
+	<form>
 		<h2 id="tcount"> todo (0) </h2>
+		<ul id="Todo">
+
+		</ul>
 	</form>
-	<form id="finish" name="finish">
+	<form>
 		<h2 id="fcount"> finished (0)</h2>
+		<ul id="Finish">
 	</form>
 	<script type="text/javascript" src="main.js"></script>
 </body>
