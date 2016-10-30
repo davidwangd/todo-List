@@ -1,14 +1,10 @@
-
-var bug = document.getElementById("debug");
 function onFocus(){
 	var obj = document.inputform.todoText;
 	if (obj.value == "type your todoList here!") obj.value = "";
-	bug.value += "you are now on the focus" + "\n";
 }
 function onBlur(){
 	var obj = document.inputform.todoText;
 	if (obj.value == "") obj.value = "type your todoList here!";
-	bug.value += "you leave the text field" + "\n";
 }
 var todoCount = 0,finishCount = 0,count = 0;
 var todo = new Array(200);
@@ -58,16 +54,11 @@ function update(id,done,exist){
 function submit(){
 	if (document.inputform.todoText.value == "type your todoList here!"
 	 || document.inputform.todoText.value == ""){
-		window.alert("please input the exactly things todo!!");
 		return false;
 	}
 	bug.value += "you've sumbit one todo event";
 	count++;
-	window.alert(count);
 	list[count] = new feature(document.inputform.todoText.value,false,null,count);
-	for (i = 1;i <= count;i++){
-		window.alert(list[i]);
-	}
 	reload();
 }
 /*
