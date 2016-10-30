@@ -18,14 +18,25 @@ function feature(text,done,ddl,id){
 	this.exist = true;
 }
 
+function loadData(){
+	var collection=localStorage.getItem("list");
+	if(collection!=null){
+		return JSON.parse(collection);
+	}
+	else return [];
+}
+
 function reload(){
 	var todoHead = document.getElementById("tcount");
 	var finishHead = document.getElementById("fcount");
 	var Todo = document.getElementById("Todo");
 	var Finish = document.getElementById("Finish");
 	var t = "",f="";
+	count = localStorage.getItem('count');
 	todoCount = 0;
 	finishCount = 0;
+	list = loadData();
+	if (list == null) return;
 	for (i = 1;i <= count;i++){
 		if (list[i].exist == false) continue;
 		if (list[i].done == false){
@@ -43,11 +54,13 @@ function reload(){
 	todoHead.innerHTML = "Todo (" + todoCount + ")";
 	finishHead.innerHTML = "Finish (" + finishCount + ")";
 	window.reload();
+
 }
 
 function update(id,done,exist){
 	list[id].done = done;
 	list[id].exist = exist;
+	localStorage.setItem('list',JSON.stringify(list));
 	reload();
 }
 
@@ -60,8 +73,12 @@ function submit(){
 	count++;
 	list[count] = new feature(document.inputform.todoText.value,false,null,count);
 	document.inputform.todoText.value = "";
+	localStorage.setItem('list',JSON.stringify(list));
+	localStorage.setItem('count',count);
 	reload();
 }
+
+window.onload=reload();
 /*
 function keyPress(){
 	if (window.event.keyCode) keyCode = window.event.keyCode;
