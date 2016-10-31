@@ -38,8 +38,8 @@ function reload(){
 	list = loadData();
 	if (list == null) return;
 	for (i = 1;i <= count;i++){
-		if (list[i].exist == false) continue;
-		if (list[i].done == false){
+		if (list[i].exist === false) continue;
+		if (list[i].done === false){
 			t = t + "<li draggable='true'><input type=\"checkbox\" onchange=\"update(" + i + ",true,true);\">" + list[i].text + 
 				"<input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\" class='del'></li>";   
 			todoCount++;
