@@ -1,10 +1,10 @@
 function onFocus(){
 	var obj = document.inputform.todoText;
-	if (obj.value == "type your todoList here!") obj.value = "";
+	if (obj.value === "type your todoList here!") obj.value = "";
 }
 function onBlur(){
 	var obj = document.inputform.todoText;
-	if (obj.value == "") obj.value = "type your todoList here!";
+	if (obj.value === "") obj.value = "type your todoList here!";
 }
 var todoCount = 0,finishCount = 0,count = 0;
 var todo = new Array(200);
@@ -20,7 +20,7 @@ function feature(text,done,ddl,id){
 
 function loadData(){
 	var collection=localStorage.getItem("list");
-	if(collection!=null){
+	if(collection!==null){
 		return JSON.parse(collection);
 	}
 	else return [];
@@ -45,7 +45,7 @@ function reload(){
 			todoCount++;
 		}else{
 			f = f + "<li draggable='true'> <input type=\"checkbox\" onclick=\"update(" + i + ",false,true);\" checked='checked'>" + list[i].text + 
-				"<input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\" class='del'>";
+				"<input type=\"button\" onclick=\"update(" +i +",false,false);\" value = \"delete\" class='del'></li>";
 			finishCount++;
 		}
 	}
@@ -53,6 +53,9 @@ function reload(){
 	Finish.innerHTML = f;
 	todoHead.innerHTML = "Todo (" + todoCount + ")";
 	finishHead.innerHTML = "Finish (" + finishCount + ")";
+	if (todoCount == 0 && finishCount == 0){
+		localStorage.clear();
+	}
 	window.reload();
 
 }
@@ -65,8 +68,8 @@ function update(id,done,exist){
 }
 
 function submit(){
-	if (document.inputform.todoText.value == "type your todoList here!"
-	 || document.inputform.todoText.value == ""){
+	if (document.inputform.todoText.value === "type your todoList here!"
+	 || document.inputform.todoText.value === ""){
 	 	window.alert("please enter exact what todo!");
 		return false;
 	}

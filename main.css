@@ -14,7 +14,7 @@ section{
 	auto;
 }
 label{
-	margin:10%;
+	margin:0px 0px 0px 35%;
 	float:left;
 	width:200px;
 	line-height:50px;
@@ -24,10 +24,18 @@ label{
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 ul li{
-	size: 400px;
 	font-size:20px;	
+	background: #563d7c;
+	height:30px;
+	margin:0 10% 5px 10%;
 }
 .del{
 	float:right;
+	width:70px;
+	height:30px;
 	background-color: red;
+}
+h2 {
+	float:center;
+	margin:0 0 0 45%;
 }
