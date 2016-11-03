@@ -36,7 +36,7 @@ function reload(){
 	todoCount = 0;
 	finishCount = 0;
 	list = loadData();
-	if (list == null) return;
+	if (list === []) return;
 	for (i = 1;i <= count;i++){
 		if (list[i].exist === false) continue;
 		if (list[i].done === false){
@@ -53,7 +53,7 @@ function reload(){
 	Finish.innerHTML = f;
 	todoHead.innerHTML = "Todo (" + todoCount + ")";
 	finishHead.innerHTML = "Finish (" + finishCount + ")";
-	if (todoCount == 0 && finishCount == 0){
+	if (todoCount === 0 && finishCount === 0){
 		localStorage.clear();
 	}
 	window.reload();
@@ -81,7 +81,7 @@ function submit(){
 	reload();
 }
 
-window.onload=reload();
+reload();
 /*
 function keyPress(){
 	if (window.event.keyCode) keyCode = window.event.keyCode;
