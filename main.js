@@ -56,8 +56,6 @@ function reload(){
 	if (todoCount === 0 && finishCount === 0){
 		localStorage.clear();
 	}
-	window.reload();
-
 }
 
 function update(id,done,exist){
@@ -81,7 +79,7 @@ function submit(){
 	reload();
 }
 
-reload();
+window.onload = reload;
 /*
 function keyPress(){
 	if (window.event.keyCode) keyCode = window.event.keyCode;
